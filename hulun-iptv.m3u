@@ -61,7 +61,6 @@ http://192.168.10.120:5555/rtp/239.29.1.195:5000
 http://192.168.10.120:5555/rtp/239.29.1.184:5000
 #EXTINF:-1 tvg-id="89" tvg-name="山东卫视4K" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/山东卫视4k.png" group-title="4K",山东卫视4K
 http://192.168.10.120:5555/rtp/239.29.1.198:5000
-#
 #EXTINF:-1 tvg-id="151" tvg-name="中国教育1台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/CETV1.png" group-title="数字频道",CETV1
 http://192.168.10.120:5555/rtp/239.29.0.95:5000
 #EXTINF:-1 tvg-id="154" tvg-name="中国教育4台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/CETV4.png" group-title="数字频道",CETV-4高清
@@ -72,7 +71,6 @@ http://192.168.10.120:5555/rtp/239.29.1.177:5000
 http://192.168.10.120:5555/rtp/239.29.1.176:5000
 #EXTINF:-1 tvg-id="CHC1" tvg-name="CHC影迷电影" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/CHC影迷电影.png" group-title="数字频道",CHC影迷电影
 http://192.168.10.120:5555/rtp/239.29.1.178:5000
-#
 #EXTINF:-1 tvg-id="136" tvg-name="北京纪实科教" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/北京纪实科教.png" group-title="卫视",北京纪实高清
 http://192.168.10.120:5555/rtp/239.29.0.110:5000
 #EXTINF:-1 tvg-id="90" tvg-name="北京卫视" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/北京卫视.png" group-title="卫视",北京卫视
@@ -248,6 +246,7 @@ http://192.168.10.120:5555/rtp/239.29.0.14:5000
 #EXTINF:-1 tvg-name="赤峰新闻综合" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/赤峰新闻综合.png" group-title="内蒙",赤峰新闻综合
 http://192.168.10.120:5555/rtp/239.29.0.13:5000
 #EXTINF:-1 tvg-name="赤峰影视娱乐" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/赤峰影视娱乐.png" group-title="内蒙",赤峰影视娱乐
+
 
 
 
