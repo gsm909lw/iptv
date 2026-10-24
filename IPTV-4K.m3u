@@ -109,27 +109,15 @@ http://192.168.10.99:5555/rtp/239.3.1.123:8164
 http://192.168.10.99:5555/rtp/239.3.1.45:8304
 #EXTINF:-1 tvg-id="云南卫视" tvg-name="云南卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/云南卫视.png" group-title="卫视",云南卫视
 http://192.168.10.99:5555/rtp/239.3.1.26:8108
-#EXTINF:-1 tvg-id="兵团卫视" tvg-name="兵团卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/兵团卫视.png" group-title="卫视",兵团卫视
-http://192.168.10.99:5555/rtp/239.3.1.144:4120
 #EXTINF:-1 tvg-id="厦门卫视" tvg-name="厦门卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/厦门卫视.png" group-title="卫视",厦门卫视
 http://192.168.10.99:5555/rtp/239.3.1.143:4120
 #EXTINF:-1 tvg-id="四川卫视" tvg-name="四川卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/四川卫视.png" group-title="卫视",四川卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.131:3001
 http://192.168.10.99:5555/rtp/239.3.1.29:8288
-#EXTINF:-1 tvg-id="宁夏卫视" tvg-name="宁夏卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/宁夏卫视.png" group-title="卫视",宁夏卫视
-http://192.168.10.99:5555/rtp/239.3.1.46:8124
 #EXTINF:-1 tvg-id="山西卫视" tvg-name="山西卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/山西卫视.png" group-title="卫视",山西卫视
 http://192.168.10.99:5555/rtp/239.3.1.42:8172
 #EXTINF:-1 tvg-id="广西卫视" tvg-name="广西卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/广西卫视.png" group-title="卫视",广西卫视
 http://192.168.10.99:5555/rtp/239.3.1.39:8300
-#EXTINF:-1 tvg-id="新疆卫视" tvg-name="新疆卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/新疆卫视.png" group-title="卫视",新疆卫视
-http://192.168.10.99:5555/rtp/239.3.1.48:8160
-#EXTINF:-1 tvg-id="河南卫视" tvg-name="河南卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/河南卫视.png" group-title="卫视",河南卫视
-http://192.168.10.99:5555/rtp/239.3.1.27:8128
-#EXTINF:-1 tvg-id="甘肃卫视" tvg-name="甘肃卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/甘肃卫视.png" group-title="卫视",甘肃卫视
-http://192.168.10.99:5555/rtp/239.3.1.49:8188
-#EXTINF:-1 tvg-id="西藏卫视" tvg-name="西藏卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/西藏卫视.png" group-title="卫视",西藏卫视
-http://192.168.10.99:5555/rtp/239.3.1.47:8164
 #EXTINF:-1 tvg-id="三沙卫视" tvg-name="三沙卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/三沙卫视.png" group-title="卫视",三沙卫视
 http://192.168.10.99:5555/rtp/239.3.1.155:4120
 #EXTINF:-1 tvg-id="陕西卫视" tvg-name="陕西卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/陕西卫视.png" group-title="卫视",陕西卫视
@@ -142,14 +130,10 @@ http://192.168.10.99:5555/rtp/239.3.1.43:8176
 http://192.168.10.99:5555/rtp/239.3.1.57:8152
 #EXTINF:-1 tvg-id="中国教育2台" tvg-name="中国教育2台" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/CETV2.png" group-title="未分类",CETV2
 http://192.168.10.99:5555/rtp/239.3.1.54:4120
-#EXTINF:-1 tvg-id="中国教育3台" tvg-name="中国教育3台" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/CETV3.png" group-title="未分类",CETV3
-http://192.168.10.99:5555/rtp/239.3.1.55:4120
 #EXTINF:-1 tvg-id="中国教育4台" tvg-name="中国教育4台" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/CETV4.png" group-title="未分类",CETV4
 http://192.168.10.99:5555/rtp/239.3.1.56:4120
 #EXTINF:-1 tvg-id="中国交通" tvg-name="中国交通" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/中国交通.png" group-title="未分类",中国交通[高清]
 http://192.168.10.99:5555/rtp/239.3.1.188:8001
-#EXTINF:-1 tvg-id="法治天地" tvg-name="法治天地" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/法治天地.png" group-title="未分类",法治天地[高清]
-http://192.168.10.99:5555/rtp/239.3.1.204:8001
 #EXTINF:-1 tvg-id="睛彩竞技" tvg-name="睛彩竞技" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/睛彩竞技.png" group-title="未分类",睛彩竞技[高清]
 http://192.168.10.99:5555/rtp/239.3.1.125:8001
 #EXTINF:-1 tvg-id="睛彩篮球" tvg-name="睛彩篮球" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/睛彩篮球.png" group-title="未分类",睛彩篮球[高清]
@@ -158,28 +142,12 @@ http://192.168.10.99:5555/rtp/239.3.1.126:8001
 http://192.168.10.99:5555/rtp/239.3.1.127:8001
 #EXTINF:-1 tvg-id="睛彩广场舞" tvg-name="睛彩广场舞" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/睛彩广场舞.png" group-title="未分类",睛彩广场舞[高清]
 http://192.168.10.99:5555/rtp/239.3.1.128:8001
-#EXTINF:-1 tvg-id="魅力足球" tvg-name="魅力足球" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/魅力足球.png" group-title="未分类",魅力足球[高清]
-http://192.168.10.99:5555/rtp/239.3.1.201:8001
-#EXTINF:-1 tvg-id="茶频道" tvg-name="茶频道" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/Hunan12.png" group-title="未分类",茶频道[高清]
-http://192.168.10.99:5555/rtp/239.3.1.165:8001
 #EXTINF:-1 tvg-id="快乐垂钓" tvg-name="快乐垂钓" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/Hunan11.png" group-title="未分类",快乐垂钓[高清]
 http://192.168.10.99:5555/rtp/239.3.1.164:8001
 #EXTINF:-1 tvg-id="金鹰纪实" tvg-name="金鹰纪实" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/Hunan9.png" group-title="未分类",金鹰纪实[高清]
 http://192.168.10.99:5555/rtp/239.3.1.58:8156
 #EXTINF:-1 tvg-id="金鹰卡通" tvg-name="金鹰卡通" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/Hunan10.png" group-title="未分类",金鹰卡通[高清]
 http://192.168.10.99:5555/rtp/239.3.1.51:9252
-#EXTINF:-1 tvg-id="生活时尚" tvg-name="生活时尚" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/生活时尚.png" group-title="未分类",生活时尚[高清]
-http://192.168.10.99:5555/rtp/239.3.1.206:8001
-#EXTINF:-1 tvg-id="游戏风云" tvg-name="游戏风云" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/游戏风云.png" group-title="未分类",游戏风云[高清]
-http://192.168.10.99:5555/rtp/239.3.1.205:8001
-#EXTINF:-1 tvg-id="金色学堂" tvg-name="金色学堂" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/金色学堂.png" group-title="未分类",金色学堂[高清]
-http://192.168.10.99:5555/rtp/239.3.1.208:8001
-#EXTINF:-1 tvg-id="乐游" tvg-name="乐游" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/乐游.png" group-title="未分类",乐游[高清]
-http://192.168.10.99:5555/rtp/239.3.1.207:8001
-#EXTINF:-1 tvg-id="动漫秀场" tvg-name="动漫秀场" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/动漫秀场.png" group-title="未分类",动漫秀场[高清]
-http://192.168.10.99:5555/rtp/239.3.1.202:8001
-#EXTINF:-1 tvg-id="都市剧场" tvg-name="都市剧场" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/都市剧场.png" group-title="未分类",都市剧场[高清]
-http://192.168.10.99:5555/rtp/239.3.1.203:8001
 #EXTINF:-1 tvg-id="嘉佳卡通" tvg-name="嘉佳卡通" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/嘉佳卡通.png" group-title="未分类",嘉佳卡通
 http://192.168.10.99:5555/rtp/239.3.1.147:9268
 #EXTINF:-1 tvg-id="山东教育" tvg-name="山东教育" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/山东教育.png" group-title="未分类",山东教育
