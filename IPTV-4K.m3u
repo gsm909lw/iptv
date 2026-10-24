@@ -1,0 +1,27 @@
+#EXTM3U x-tvg-url="https://raw.githubusercontent.com/gsm909lw/iptv/main/epg.xml.gz"
+#EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/北京卫视.png" group-title="北京卫视",北京卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.118:8001
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/北京IPTV4K.png" group-title="北京卫视",北京4K超清[超清]
+http://192.168.10.99:5555/rtp/239.3.1.249:8001
+#EXTINF:-1 tvg-id="CCTV4K" tvg-name="CCTV4K" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/CCTV4K.png" group-title="央视",CCTV-4K 超高清[50帧HDR]
+http://192.168.10.99:5555/rtp/239.3.1.245:2000
+#EXTINF:-1 tvg-id="求索记录" tvg-name="求索记录" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/求索记录4K.png" group-title="央视",求索记录4K[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.107:8001
+#EXTINF:-1 tvg-id="湖南卫视" tvg-name="湖南卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/湖南卫视.png" group-title="卫视",湖南卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.112:3002
+#EXTINF:-1 tvg-id="东方卫视" tvg-name="东方卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/东方卫视.png" group-title="卫视",东方卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.119:3006
+#EXTINF:-1 tvg-id="浙江卫视" tvg-name="浙江卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/浙江卫视.png" group-title="卫视",浙江卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.114:3004
+#EXTINF:-1 tvg-id="江苏卫视" tvg-name="江苏卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/江苏卫视.png" group-title="卫视",江苏卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.113:3003
+#EXTINF:-1 tvg-id="深圳卫视" tvg-name="深圳卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/深圳卫视.png" group-title="卫视",深圳卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.28:2000
+#EXTINF:-1 tvg-id="广东卫视" tvg-name="广东卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/广东卫视.png" group-title="卫视",广东卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.27:2000
+#EXTINF:-1 tvg-id="山东卫视" tvg-name="山东卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/山东卫视.png" group-title="卫视",山东卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.144:3005
+#EXTINF:-1 tvg-id="四川卫视" tvg-name="四川卫视" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/img/四川卫视.png" group-title="卫视",四川卫视[超清HDR]
+http://192.168.10.99:5555/rtp/239.3.1.131:3001
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="未分类",华数4K[超清]
+http://192.168.10.99:5555/rtp/239.3.1.236:2000
