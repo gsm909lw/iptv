@@ -185,9 +185,9 @@ http://192.168.10.99:4022/udp/239.125.2.164:4153
 http://192.168.10.99:4022/udp/239.125.2.163:4152
 #EXTINF:-1 tvg-name="鄂尔多斯蒙语" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/鄂尔多斯.png" group-title="内蒙",鄂尔多斯蒙语
 http://192.168.10.99:4022/udp/239.125.2.162:4151
-#EXTINF:-1 tvg-name="锡林郭勒-1" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/锡林郭勒1.png" group-title="内蒙",锡林郭勒1
+#EXTINF:-1 tvg-name="锡林郭勒-1" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/锡林郭勒1.png" group-title="内蒙",锡林郭勒1
 http://192.168.10.99:4022/udp/239.125.2.158:4147
-#EXTINF:-1 tvg-name="锡林郭勒-2" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/锡林郭勒2.png" group-title="内蒙",锡林郭勒2
+#EXTINF:-1 tvg-name="锡林郭勒-2" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/锡林郭勒2.png" group-title="内蒙",锡林郭勒2
 http://192.168.10.99:4022/udp/239.125.2.157:4146
 #EXTINF:-1 tvg-name="呼伦贝尔生活资讯" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/呼伦贝尔生活资讯.png" group-title="内蒙",呼伦贝尔生活资讯
 http://192.168.10.99:4022/udp/239.125.2.176:4165

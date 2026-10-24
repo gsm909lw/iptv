@@ -167,9 +167,9 @@ http://192.168.10.120:5555/rtp/239.29.0.209:5000
 http://192.168.10.120:5555/rtp/239.29.0.35:5000
 #EXTINF:-1 tvg-name="呼和浩特影视娱乐" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/呼和浩特影视娱乐.png" group-title="内蒙",呼和浩特影视娱乐
 http://192.168.10.120:5555/rtp/239.29.0.37:5000
-#EXTINF:-1 tvg-name="科右中旗" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/科右中旗.png" group-title="内蒙",科右中旗
+#EXTINF:-1 tvg-name="科右中旗" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/科右中旗.png" group-title="内蒙",科右中旗
 http://192.168.10.120:5555/rtp/239.29.0.178:5000
-#EXTINF:-1 tvg-name="苏左电视台" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/苏左电视台.png" group-title="内蒙",苏左电视台
+#EXTINF:-1 tvg-name="苏左电视台" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/苏左电视台.png" group-title="内蒙",苏左电视台
 http://192.168.10.120:5555/rtp/239.29.0.190:5000
 #EXTINF:-1 tvg-name="通辽城市服务" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/通辽城市服务.png" group-title="内蒙",通辽城市服务
 http://192.168.10.120:5555/rtp/239.29.0.42:5000
@@ -193,13 +193,13 @@ http://192.168.10.120:5555/rtp/239.29.1.148:5000
 http://192.168.10.120:5555/rtp/239.29.1.106:5000
 #EXTINF:-1 tvg-name="乌兰察布丰镇电视台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/乌兰察布.png" group-title="内蒙",乌兰察布丰镇电视台
 http://192.168.10.120:5555/rtp/239.29.1.103:5000
-#EXTINF:-1 tvg-name="乌前旗" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/乌前旗.png" group-title="内蒙",乌前旗
+#EXTINF:-1 tvg-name="乌前旗" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/乌前旗.png" group-title="内蒙",乌前旗
 http://192.168.10.120:5555/rtp/239.29.0.150:5000
-#EXTINF:-1 tvg-name="锡林郭勒-1" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/锡林郭勒1.png" group-title="内蒙",锡林郭勒-1
+#EXTINF:-1 tvg-name="锡林郭勒-1" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/锡林郭勒1.png" group-title="内蒙",锡林郭勒-1
 http://192.168.10.120:5555/rtp/239.29.0.38:5000
-#EXTINF:-1 tvg-name="锡林郭勒-2" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/锡林郭勒2.png" group-title="内蒙",锡林郭勒-2
+#EXTINF:-1 tvg-name="锡林郭勒-2" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/锡林郭勒2.png" group-title="内蒙",锡林郭勒-2
 http://192.168.10.120:5555/rtp/239.29.0.39:5000
-#EXTINF:-1 tvg-name="锡林郭勒西乌旗" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/锡林郭勒西乌旗.png" group-title="内蒙",锡林郭勒西乌旗
+#EXTINF:-1 tvg-name="锡林郭勒西乌旗" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/锡林郭勒西乌旗.png" group-title="内蒙",锡林郭勒西乌旗
 http://192.168.10.120:5555/rtp/239.29.0.181:5000
 #EXTINF:-1 tvg-name="额济纳电视台" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/阿拉善.png" group-title="内蒙",额济纳电视台
 http://192.168.10.120:5555/rtp/239.29.0.177:5000
@@ -221,7 +221,7 @@ http://192.168.10.120:5555/rtp/239.29.1.147:5000
 http://192.168.10.120:5555/rtp/239.29.1.105:5000
 #EXTINF:-1 tvg-name="鄂尔多斯准格尔" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/鄂尔多斯.png" group-title="内蒙",鄂尔多斯准格尔
 http://192.168.10.120:5555/rtp/239.29.0.192:5000
-#EXTINF:-1 tvg-name="扎赉特电视台" tvg-logo="https://raw.githubusercontent.com/gsm909lw/iptv/main/扎赉特电视台.png" group-title="内蒙",扎赉特电视台
+#EXTINF:-1 tvg-name="扎赉特电视台" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/扎赉特电视台.png" group-title="内蒙",扎赉特电视台
 http://192.168.10.120:5555/rtp/239.29.0.185:5000
 #EXTINF:-1 tvg-name="中旗" tvg-logo="https://raw.githubusercontent.com/fanmingming/live/main/tv/内蒙古IPTV.png" group-title="内蒙",中旗
 http://192.168.10.120:5555/rtp/239.29.0.152:5000
