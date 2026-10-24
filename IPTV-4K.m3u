@@ -1,5 +1,4 @@
 #EXTM3U x-tvg-url="https://gitee.com/gsm909/iptv/raw/master/epg.xml.gz"
-#EXTM3U x-tvg-url="https://gitee.com/gsm909/iptv/raw/master/epg.xml.gz"
 #EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/img/北京卫视.png" group-title="北京卫视",北京卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.118:8001
 #EXTINF:-1 tvg-id="北京新闻" tvg-name="北京新闻" tvg-logo="https://gitee.com/gsm909/iptv/raw/master/img/北京新闻.png" group-title="北京卫视",北京新闻[高清]
