@@ -28,6 +28,10 @@ ALIAS = {
     '北京卡酷少儿': '卡酷少儿',
     'CCTV-5+ 体育赛事': 'CCTV5+',
     'CCTV-4K 超高清': 'CCTV4K',
+    '求索记录4K': '求索纪录',
+    'CETV1': '中国教育一套',
+    'CETV2': '中国教育2台',
+    'CETV4': '中国教育4台',
 }
 # 没有 EPG 的付费/轮播频道（按完整台名精确匹配，避免误伤 CCTV-7 国防军事 之类）
 SKIP_NAMES = {'热播剧场', '星影', '动作影院', '家庭影院', '军旅剧场', '精选', '经典电影',
@@ -75,14 +79,19 @@ def main():
     if not os.path.exists(M3U):
         sys.exit(f'找不到 m3u: {M3U}')
     m3u = open(M3U, encoding='utf-8').read()
-    names = []
+    names, tvid = [], {}
     for l in m3u.splitlines():
         if l.startswith('#EXTINF'):
             n = l.split(',', 1)[1] if ',' in l else ''
             n = re.sub(r'\[[^\]]*\]$', '', n).strip()
+            m = re.search(r'tvg-id="([^"]*)"', l)
             if n and n not in names:
                 names.append(n)
-    print(f'm3u 台数: {len(names)}')
+                tvid[n] = (m.group(1).strip() if m else '')
+    # 频道 id 统一用 m3u 的 tvg-id（播放器靠它匹配节目单）；没有 tvg-id 的退回台名
+    cid = {n: (tvid.get(n) or n) for n in names}
+    dup = len(cid) - len(set(cid.values()))
+    print(f'm3u 台数: {len(names)} (id 重复 {dup})')
 
     lo = (date.today() - timedelta(days=1)).strftime('%Y%m%d')
     hi = (date.today() + timedelta(days=3)).strftime('%Y%m%d')
@@ -114,7 +123,7 @@ def main():
         if sid:
             progs = keep_dates(blocks.get(sid, []), lo, hi)
             if progs:
-                got[n] = [p.replace(f'channel="{sid}"', f'channel="{n}"') for p in progs]
+                got[n] = [p.replace(f'channel="{sid}"', f'channel="{cid[n]}"') for p in progs]
     print(f'主源匹配: {len(got)} 台')
 
     # ---------- 补充源 epg.pw（只补主源完全没有的台；epg.pw 只提供当天数据） ----------
@@ -136,16 +145,16 @@ def main():
             print(f'epg.pw 频道: {len(pw)}')
             filled = 0
             for n in need:
-                cid = pw.get(n) or pwset.get(norm(n)) or pwset.get(norm(ALIAS.get(n, '')))
-                if not cid:
+                pwid = pw.get(n) or pwset.get(norm(n)) or pwset.get(norm(ALIAS.get(n, '')))
+                if not pwid:
                     continue
                 try:
-                    xml = fetch(PW_API.format(cid=cid, d=date.today().strftime('%Y%m%d')), timeout=30)
+                    xml = fetch(PW_API.format(cid=pwid, d=date.today().strftime('%Y%m%d')), timeout=30)
                 except Exception as e:
                     print(f'  epg.pw 失败 {n}: {e}')
                     continue
                 progs = keep_dates(re.findall(r'<programme .*?</programme>', xml, re.S), lo, hi)
-                progs = [q.replace(f'channel="{cid}"', f'channel="{n}"') for q in progs]
+                progs = [q.replace(f'channel="{pwid}"', f'channel="{cid[n]}"') for q in progs]
                 if progs:
                     got[n] = progs
                     filled += 1
@@ -162,7 +171,8 @@ def main():
            '<tv generator-info-name="gsm909 iptv epg">']
     for n in names:
         if n in got:
-            xml.append(f'  <channel id="{n}"><display-name lang="zh">{n}</display-name></channel>')
+            dn = ''.join(f'<display-name lang="zh">{x}</display-name>' for x in dict.fromkeys([cid[n], n]))
+            xml.append(f'  <channel id="{cid[n]}">{dn}</channel>')
     for n in names:
         if n in got:
             for p in got[n]:
