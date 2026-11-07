@@ -71,28 +71,16 @@ http://192.168.10.99:5555/rtp/239.3.1.151:8144
 http://192.168.10.99:5555/rtp/239.3.1.245:2000
 #EXTINF:-1 tvg-id="求索记录" tvg-name="求索记录" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/求索记录4K.png" group-title="央视",求索记录4K[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.107:8001
-#EXTINF:-1 tvg-id="湖南卫视" tvg-name="湖南卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/湖南卫视.png" group-title="卫视",湖南卫视[高清]
-http://192.168.10.99:5555/rtp/239.3.1.132:8012
 #EXTINF:-1 tvg-id="湖南卫视" tvg-name="湖南卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/湖南卫视.png" group-title="卫视",湖南卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.112:3002
-#EXTINF:-1 tvg-id="东方卫视" tvg-name="东方卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/东方卫视.png" group-title="卫视",东方卫视[高清]
-http://192.168.10.99:5555/rtp/239.3.1.136:8032
 #EXTINF:-1 tvg-id="东方卫视" tvg-name="东方卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/东方卫视.png" group-title="卫视",东方卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.119:3006
-#EXTINF:-1 tvg-id="浙江卫视" tvg-name="浙江卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/浙江卫视.png" group-title="卫视",浙江卫视[高清]
-http://192.168.10.99:5555/rtp/239.3.1.137:8036
 #EXTINF:-1 tvg-id="浙江卫视" tvg-name="浙江卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/浙江卫视.png" group-title="卫视",浙江卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.114:3004
-#EXTINF:-1 tvg-id="江苏卫视" tvg-name="江苏卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/江苏卫视.png" group-title="卫视",江苏卫视[高清]
-http://192.168.10.99:5555/rtp/239.3.1.135:8028
 #EXTINF:-1 tvg-id="江苏卫视" tvg-name="江苏卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/江苏卫视.png" group-title="卫视",江苏卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.113:3003
-#EXTINF:-1 tvg-id="深圳卫视" tvg-name="深圳卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/深圳卫视.png" group-title="卫视",深圳卫视[高清]
-http://192.168.10.99:5555/rtp/239.3.1.134:8020
 #EXTINF:-1 tvg-id="深圳卫视" tvg-name="深圳卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/深圳卫视.png" group-title="卫视",深圳卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.28:2000
-#EXTINF:-1 tvg-id="广东卫视" tvg-name="广东卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/广东卫视.png" group-title="卫视",广东卫视[高清]
-http://192.168.10.99:5555/rtp/239.3.1.142:8048
 #EXTINF:-1 tvg-id="广东卫视" tvg-name="广东卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/广东卫视.png" group-title="卫视",广东卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.27:2000
 #EXTINF:-1 tvg-id="安徽卫视" tvg-name="安徽卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/安徽卫视.png" group-title="卫视",安徽卫视[高清]
@@ -101,8 +89,6 @@ http://192.168.10.99:5555/rtp/239.3.1.211:8064
 http://192.168.10.99:5555/rtp/239.3.1.141:1234
 #EXTINF:-1 tvg-id="重庆卫视" tvg-name="重庆卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/重庆卫视.png" group-title="卫视",重庆卫视[高清]
 http://192.168.10.99:5555/rtp/239.3.1.122:8160
-#EXTINF:-1 tvg-id="山东卫视" tvg-name="山东卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/山东卫视.png" group-title="卫视",山东卫视[高清]
-http://192.168.10.99:5555/rtp/239.3.1.209:8052
 #EXTINF:-1 tvg-id="山东卫视" tvg-name="山东卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/山东卫视.png" group-title="卫视",山东卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.144:3005
 #EXTINF:-1 tvg-id="黑龙江卫视" tvg-name="黑龙江卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/黑龙江卫视.png" group-title="卫视",黑龙江卫视[高清]
@@ -127,8 +113,6 @@ http://192.168.10.99:5555/rtp/239.3.1.45:8304
 http://192.168.10.99:5555/rtp/239.3.1.26:8108
 #EXTINF:-1 tvg-id="厦门卫视" tvg-name="厦门卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/厦门卫视.png" group-title="卫视",厦门卫视
 http://192.168.10.99:5555/rtp/239.3.1.143:4120
-#EXTINF:-1 tvg-id="四川卫视" tvg-name="四川卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/四川卫视.png" group-title="卫视",四川卫视
-http://192.168.10.99:5555/rtp/239.3.1.29:8288
 #EXTINF:-1 tvg-id="四川卫视" tvg-name="四川卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/四川卫视.png" group-title="卫视",四川卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.131:3001
 http://192.168.10.99:5555/rtp/239.3.1.29:8288
@@ -234,5 +218,3 @@ http://192.168.10.99:5555/rtp/239.3.1.82:4120
 http://192.168.10.99:5555/rtp/239.3.1.70:4120
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="未分类",魅力时尚
 http://192.168.10.99:5555/rtp/239.3.1.196:9012
-
-
