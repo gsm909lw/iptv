@@ -1,8 +1,6 @@
 #EXTM3U x-tvg-url="https://gitee.com/gsm909/iptv/raw/main/epg.xml.gz"
 #EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/北京卫视.png" group-title="北京卫视",北京卫视[超清HDR]
 http://192.168.10.99:5555/rtp/239.3.1.118:8001
-#EXTINF:-1 tvg-id="北京新闻" tvg-name="北京新闻" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/北京新闻.png" group-title="北京卫视",北京新闻[高清]
-http://192.168.10.99:5555/rtp/239.3.1.159:8000
 #EXTINF:-1 tvg-id="北京影视" tvg-name="北京影视" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/北京影视.png" group-title="北京卫视",北京影视[高清]
 http://192.168.10.99:5555/rtp/239.3.1.158:8000
 #EXTINF:-1 tvg-id="北京文艺" tvg-name="北京文艺" tvg-logo="https://gitee.com/gsm909/iptv/raw/main/img/北京文艺.png" group-title="北京卫视",北京文艺[高清]
@@ -216,5 +214,3 @@ http://192.168.10.99:5555/rtp/239.3.1.82:4120
 http://192.168.10.99:5555/rtp/239.3.1.70:4120
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="未分类",魅力时尚
 http://192.168.10.99:5555/rtp/239.3.1.196:9012
-
-
