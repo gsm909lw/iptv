@@ -1,105 +1,180 @@
 #!/usr/bin/env python3
-"""每日 EPG 构建：51zmt(央视/卫视) + epg.pw(北京本地台等) 合并，频道名 id 体系"""
-import re, gzip, json, ssl, urllib.request, urllib.parse, sys
+"""每日 EPG 构建：112114 主源(央视/卫视/北京台, 当日新鲜数据) + epg.pw 补缺口，频道名 id 体系。
+
+要点：
+- 主源 112114 pp.xml（539 频道，当天数据），按台名归一化匹配我们的 m3u 台名
+- 未匹配到的台，用 epg.pw 逐台补（仅限 epg.pw 上确实存在的台）
+- 输出频道 id = m3u 的 tvg-id（中文台名，去掉 [高清] 之类的后缀）
+- 只保留 昨天~+3天 的节目，避免文件过大
+- 输出到仓库根目录 epg.xml.gz（GitHub Actions 提交的就是这个文件）
+"""
+import re, gzip, os, sys, ssl, urllib.request
 from datetime import date, timedelta
 
 CTX = ssl.create_default_context()
 UA = {'User-Agent': 'Mozilla/5.0'}
-
-def fetch(url, timeout=60, binary=False):
-    req = urllib.request.Request(url, headers=UA)
-    d = urllib.request.urlopen(req, timeout=timeout, context=CTX).read()
-    return d if binary else d.decode('utf-8', errors='ignore')
-
-# ---------- 1) 51zmt 新鲜数据（数字 id -> 频道名） ----------
-import os
-zmt_urls = [
-    'https://s.102031.xyz/xml/a1999882e.xml',
-    'https://epg.51zmt.top:8001/e.xml',
-]
-x = None
-local = os.environ.get('ZMT_LOCAL_FILE')  # 调试用：直接读本地文件
-if local:
-    x = open(local, encoding='utf-8').read()
-    print('51zmt 源(本地):', local)
-else:
-    for u in zmt_urls:
-        try:
-            x = fetch(u, timeout=120)
-            if '<programme' in x:
-                print('51zmt 源:', u); break
-        except Exception as e:
-            print('失败:', u, e)
-if not x or '<programme' not in x:
-    sys.exit('51zmt 全部源失败')
-
-idmap = {}
-for cid, body in re.findall(r'<channel id="([^"]+)">(.*?)</channel>', x, re.S):
-    names = re.findall(r'<display-name[^>]*>([^<]+)</display-name>', body)
-    if names: idmap[cid] = names[0].strip()
-x = re.sub(r'<channel id="([^"]+)"', lambda m: f'<channel id="{idmap.get(m.group(1), m.group(1))}"', x)
-x = re.sub(r'(<programme [^>]*?)channel="([^"]+)"',
-           lambda m: m.group(1) + f'channel="{idmap.get(m.group(2), m.group(2))}"', x)
-# 去掉昨天以前的过期节目（按 start 日期逐条判断）
-cutoff = (date.today() - timedelta(days=1)).strftime('%Y%m%d')
-def keep_old(m):
-    tag = m.group(0)
-    sm = re.search(r'start="(\d{8})', tag)
-    return tag if (sm and sm.group(1) >= cutoff) else ''
-x = re.sub(r'<programme [^>]*>.*?</programme>\s*', keep_old, x, flags=re.S)
-
-# ---------- 2) epg.pw 补北京本地台等 ----------
-# (输出频道名[须与 m3u 的 tvg-name 一致], [epg.pw 上的候选名])
-PW_TARGETS = [
-    ('北京新闻', ['北京新闻']),
-    ('北京文艺', ['北京文艺']),
-    ('北京影视', ['北京影视']),
-    ('北京生活', ['北京生活']),
-    ('北京财经', ['北京财经']),
-    ('北京纪实科教', ['北京纪实科教', '北京纪实-科教', '北京纪实']),
-    ('北京体育休闲', ['北京体育休闲', '北京体育']),
-    ('卡酷动画', ['卡酷动画', '卡酷少儿']),
-]
-
-# 动态解析频道 id（避免硬编码失效）
-pw = {}
-try:
-    page = fetch('https://epg.pw/areas/cn.html?lang=zh-hans', timeout=45)
-    for href, title in re.findall(r'href="([^"]+)"[^>]*title="查看频道 ([^"]+)"', page):
-        name = re.sub(r'\s*未来一周的节目表.*$', '', title).strip()
-        m = re.search(r'/last/(\d+)\.html', href)
-        if m and name and name not in pw:
-            pw[name] = m.group(1)
-    print('epg.pw 解析到', len(pw), '个频道')
-except Exception as e:
-    print('epg.pw 页面解析失败:', e)
-
-blocks = []
-existing = set(re.findall(r'<channel id="([^"]+)"', x))
-for out_name, candidates in PW_TARGETS:
-    cid = next((pw[c] for c in candidates if pw.get(c)), None)
-    if not cid or out_name in existing:
-        print(f'跳过: {out_name} (id={cid}, 已存在={out_name in existing})')
-        continue
-    ch_tag = f'<channel id="{out_name}"><display-name lang="zh">{out_name}</display-name></channel>\n'
-    progs = []
-    for off in range(3):  # 今天起 3 天
-        d = (date.today() + timedelta(days=off)).strftime('%Y%m%d')
-        try:
-            xml = fetch(f'https://epg.pw/api/epg.xml?channel_id={cid}&date={d}', timeout=45)
-            progs += re.findall(r'<programme .*?</programme>', xml, re.S)
-        except Exception as e:
-            print('epg.pw 失败:', out_name, d, e)
-    if progs:
-        # 归一 channel 属性为输出频道名
-        p = ''.join(progs).replace(f'channel="{cid}"', f'channel="{out_name}"')
-        blocks.append(ch_tag + p + '\n')
-        print(f'{out_name}(id={cid}): {len(progs)} 条')
-x = x.replace('</tv>', ''.join(blocks) + '</tv>')
-
-# ---------- 3) 输出（固定写到脚本所在目录，避免相对路径歧义） ----------
 HERE = os.path.dirname(os.path.abspath(__file__))
-out = gzip.compress(x.encode('utf-8'), 9)
-open(os.path.join(HERE, 'epg.xml.gz'), 'wb').write(out)
-print(f'完成: 频道 {x.count("<channel ")} 节目 {x.count("<programme")} 大小 {len(out)//1024}KB')
-print('输出:', os.path.join(HERE, 'epg.xml.gz'))
+ROOT = os.path.dirname(HERE)
+M3U = os.path.join(ROOT, 'IPTV.m3u')
+OUT = os.path.join(ROOT, 'epg.xml.gz')
+
+SRC_112114 = 'https://epg.112114.xyz/pp.xml'
+PW_AREA = 'https://epg.pw/areas/cn.html?lang=zh-hans'
+PW_API = 'https://epg.pw/api/epg.xml?channel_id={cid}&date={d}'
+
+# 我们的台名 -> 源里的台名（源里叫法不同时）
+ALIAS = {
+    '北京纪实科教': '北京纪实',
+    '北京卡酷少儿': '卡酷少儿',
+    'CCTV-5+ 体育赛事': 'CCTV5+',
+    'CCTV-4K 超高清': 'CCTV4K',
+}
+# 没有 EPG 的付费/轮播频道（按完整台名精确匹配，避免误伤 CCTV-7 国防军事 之类）
+SKIP_NAMES = {'热播剧场', '星影', '动作影院', '家庭影院', '军旅剧场', '精选', '经典电影',
+              '光影', '喜剧影院', '解密', '军事', '动画', '古装剧场', '城市剧场', '墨宝',
+              '好学生', '早教', '爱生活', '美人', '美妆', '足球', '鉴赏', '音乐现场', '魅力时尚',
+              '少儿动画'}
+
+
+def fetch(url, timeout=90):
+    req = urllib.request.Request(url, headers=UA)
+    return urllib.request.urlopen(req, timeout=timeout, context=CTX).read().decode('utf-8', errors='ignore')
+
+
+def norm(s):
+    s = s.replace(' ', '').replace('　', '')
+    s = re.sub(r'\[[^\]]*\]$', '', s)
+    s = re.sub(r'(高清|超清|超高清|蓝光|HDR|50帧)', '', s)
+    s = re.sub(r'-(?=\d)', '', s)   # CCTV-2 -> CCTV2
+    return s.lower()
+
+
+def find_src_id(name, idset):
+    k = norm(name)
+    if k in idset:
+        return idset[k]
+    alt = norm(ALIAS.get(name, ''))
+    if alt and alt in idset:
+        return idset[alt]
+    m = re.match(r'^(cctv\d*k?\+?)', k)
+    if m and m.group(1) in idset:
+        return idset[m.group(1)]
+    return None
+
+
+def keep_dates(progs, lo, hi):
+    out = []
+    for p in progs:
+        m = re.search(r'start="(\d{8})', p)
+        if m and lo <= m.group(1) <= hi:
+            out.append(p)
+    return out
+
+
+def main():
+    if not os.path.exists(M3U):
+        sys.exit(f'找不到 m3u: {M3U}')
+    m3u = open(M3U, encoding='utf-8').read()
+    names = []
+    for l in m3u.splitlines():
+        if l.startswith('#EXTINF'):
+            n = l.split(',', 1)[1] if ',' in l else ''
+            n = re.sub(r'\[[^\]]*\]$', '', n).strip()
+            if n and n not in names:
+                names.append(n)
+    print(f'm3u 台数: {len(names)}')
+
+    lo = (date.today() - timedelta(days=1)).strftime('%Y%m%d')
+    hi = (date.today() + timedelta(days=3)).strftime('%Y%m%d')
+
+    # ---------- 主源 112114 ----------
+    try:
+        src = fetch(SRC_112114)
+        if '<programme' not in src:
+            raise RuntimeError('无 programme 数据')
+        print(f'112114: {len(src)//1024}KB')
+    except Exception as e:
+        sys.exit(f'112114 主源失败: {e}')
+
+    blocks = {}
+    for blk in re.findall(r'<programme .*?</programme>', src, re.S):
+        m = re.search(r'channel="([^"]+)"', blk)
+        if m:
+            blocks.setdefault(m.group(1), []).append(blk)
+    idset = {}
+    for i in blocks:
+        idset.setdefault(norm(i), i)
+    print(f'112114 频道: {len(blocks)}')
+
+    got = {}
+    for n in names:
+        if n in SKIP_NAMES:
+            continue
+        sid = find_src_id(n, idset)
+        if sid:
+            progs = keep_dates(blocks.get(sid, []), lo, hi)
+            if progs:
+                got[n] = [p.replace(f'channel="{sid}"', f'channel="{n}"') for p in progs]
+    print(f'主源匹配: {len(got)} 台')
+
+    # ---------- 补充源 epg.pw（只补主源完全没有的台；epg.pw 只提供当天数据） ----------
+    need = [n for n in names if n not in got and n not in SKIP_NAMES]
+    print(f'主源缺失、需要 epg.pw 补: {len(need)} 台')
+
+    if need:
+        try:
+            page = fetch(PW_AREA, timeout=60)
+            pw = {}
+            for href, title in re.findall(r'href="([^"]+)"[^>]*title="查看频道 ([^"]+)"', page):
+                nm = re.sub(r'\s*未来一周的节目表.*$', '', title).strip()
+                mm = re.search(r'/last/(\d+)\.html', href)
+                if mm and nm and nm not in pw:
+                    pw[nm] = mm.group(1)
+            pwset = {}
+            for k, v in pw.items():
+                pwset.setdefault(norm(k), v)
+            print(f'epg.pw 频道: {len(pw)}')
+            filled = 0
+            for n in need:
+                cid = pw.get(n) or pwset.get(norm(n)) or pwset.get(norm(ALIAS.get(n, '')))
+                if not cid:
+                    continue
+                try:
+                    xml = fetch(PW_API.format(cid=cid, d=date.today().strftime('%Y%m%d')), timeout=30)
+                except Exception as e:
+                    print(f'  epg.pw 失败 {n}: {e}')
+                    continue
+                progs = keep_dates(re.findall(r'<programme .*?</programme>', xml, re.S), lo, hi)
+                progs = [q.replace(f'channel="{cid}"', f'channel="{n}"') for q in progs]
+                if progs:
+                    got[n] = progs
+                    filled += 1
+                    if filled % 10 == 0:
+                        print(f'  ...已补 {filled} 台')
+            print(f'epg.pw 补充: {filled} 台')
+        except Exception as e:
+            print(f'epg.pw 整体失败: {e}')
+
+    if not got:
+        sys.exit('没有任何节目数据，放弃写入')
+
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<tv generator-info-name="gsm909 iptv epg">']
+    for n in names:
+        if n in got:
+            xml.append(f'  <channel id="{n}"><display-name lang="zh">{n}</display-name></channel>')
+    for n in names:
+        if n in got:
+            for p in got[n]:
+                xml.append('  ' + p.strip())
+    xml.append('</tv>')
+    data = '\n'.join(xml) + '\n'
+
+    out = gzip.compress(data.encode('utf-8'), 9)
+    open(OUT, 'wb').write(out)
+    print(f'完成: 频道 {data.count("<channel ")} 节目 {data.count("<programme ")} 大小 {len(out)//1024}KB')
+    print('输出:', OUT)
+
+
+if __name__ == '__main__':
+    main()
